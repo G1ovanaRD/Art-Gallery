@@ -10,6 +10,12 @@
         body {
             font-family: 'Abel';
         }
+
+        #search-menu li {
+            cursor: pointer;
+            background-color: #f3f4f6;
+        }
+        
     </style>
     <title>Document</title>
 </head>
@@ -45,20 +51,39 @@
 </header>
 
 <body>
-  <!-- princpal -->
-   <div id="imagenes" class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4 p-4">
+  <!--collections -->
+   <div>
+     <h1>Collections</h1>
+     <div id="imagenes" class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4 p-4">
+     </div>
    </div>
 
-   <div id="topics" >
-
+   <!-- topics -->
+   <div>
+     <h1>Topics</h1>
+     <div id="topics" ></div>
    </div>
+   
+    <!--category -->
+    <div>
+      <div class="flex justify-center p-4">
+       <nav>
+         <ul class="flex space-x-4" id="search-menu">
+           <li>All</li>
+           <li class="category">Oil Painting</li>
+           <li class="category">Sculpture</li>
+           <li class="category">Modern Art</li>
+         </ul>
+       </nav>
+      </div>
+      <div id="search-results" class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4 p-4"></div>
+    </div>
 
    
     
 </body>
 <script>
     $(document).ready(function () {
-
       //get collections
       $.ajax({
             url: `https://api.unsplash.com/collections/?client_id=AkV3nFgtCLdXWkjwS_yKlIQpUweEe7i6KTWWx9jjQak`,
@@ -90,6 +115,46 @@
                         <p class="text-gray-600">Fotos: ${imagen.total_photos}</p>
                     </div>`
                 );
+            });
+        });
+
+        //get general images
+        $.ajax({
+            url: `https://api.unsplash.com/search/photos/?page=1&per_page=40&query=Modern Art;client_id=AkV3nFgtCLdXWkjwS_yKlIQpUweEe7i6KTWWx9jjQak`,
+            type: 'GET',
+        }).done(function(data){
+            console.log(data);
+            data= data.results;
+            console.log(data);
+            data.forEach(function(imagen){
+                $('#search-results').append(
+                    `<div class="bg-gray-100 p-4 rounded shadow hover:shadow-lg transition-shadow m-4">
+                        <img src="${imagen.urls.small}" alt="${imagen.description}" class="w-full h-48 object-cover mb-4 rounded">
+                        <h2 class="text-lg font-semibold">${imagen.id}</h2>
+                    </div>`
+                );
+            });
+        });
+
+        //get images filter by category
+        $('.category').on('click', function(){
+            var category= $(this).text();
+            $('#search-results').empty();
+            $.ajax({
+                url: `https://api.unsplash.com/search/photos/?page=1&per_page=40&query=${category}&color=yellow;client_id=AkV3nFgtCLdXWkjwS_yKlIQpUweEe7i6KTWWx9jjQak`,
+                type: 'GET',
+            }).done(function(data){
+                console.log(data);
+                data= data.results;
+                console.log(data);
+                data.forEach(function(imagen){
+                    $('#search-results').append(
+                        `<div class="bg-gray-100 p-4 rounded shadow hover:shadow-lg transition-shadow m-4">
+                            <img src="${imagen.urls.small}" alt="${imagen.description}" class="w-full h-48 object-cover mb-4 rounded">
+                            <h2 class="text-lg font-semibold">${imagen.id}</h2>
+                        </div>`
+                    );
+                });
             });
         });
 
