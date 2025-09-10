@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+    <style>
+        body {
+            font-family: 'Abel';
+        }
+    </style>
+    <title>Document</title>
+</head>
+<header>
+  <nav class="bg-white shadow flex justify-between p-4 items-center">
+    <a href="#" class="text-2xl text-rose-400">Artful Gallery</a>
+    <div class="md:hidden">
+      <button id="menu-btn" class="text-gray-700 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16">
+          </path>
+        </svg>
+      </button>
+    </div>
+
+    <ul class="hidden md:flex space-x-4 lg:space-x-8">
+      <li>Home</li>
+      <li>Collection</li>
+      <li>Artists</li>
+      <li>Exhibition</li>
+      <li>ArtWork Sale</li>
+    </ul>
+  </nav>
+
+    <ul id="mobile-menu" class="hidden flex-col space-y-2 p-4 md:hidden bg-gray-100">
+      <li>Home</li>
+      <li>Collection</li>
+      <li>Artists</li>
+      <li>Exhibition</li>
+      <li>ArtWork Sale</li>
+    </ul>
+</header>
+
+<body>
+  <!-- princpal -->
+   <div id="imagenes" class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4 p-4">
+   </div>
+
+   <div id="topics" >
+
+   </div>
+
+   
+    
+</body>
+<script>
+    $(document).ready(function () {
+
+      //get collections
+      $.ajax({
+            url: `https://api.unsplash.com/collections/?client_id=AkV3nFgtCLdXWkjwS_yKlIQpUweEe7i6KTWWx9jjQak`,
+            type: 'GET',
+        }).done(function(data){
+            console.log(data);
+            data.forEach(function(imagen){
+                $('#imagenes').append(
+                    `<div class="bg-gray-100 p-4 rounded shadow hover:shadow-lg transition-shadow">
+                        <img src="${imagen.cover_photo.urls.small}" alt="${imagen.title}" class="w-full h-48 object-cover mb-4 rounded">
+                        <h2 class="text-lg font-semibold">${imagen.title}</h2>
+                        <p class="text-gray-600">Fotos: ${imagen.total_photos}</p>
+                    </div>`
+                );
+            });
+        });
+
+      //get topics
+      $.ajax({
+            url: `https://api.unsplash.com/topics/?per_page=40;client_id=AkV3nFgtCLdXWkjwS_yKlIQpUweEe7i6KTWWx9jjQak`,
+            type: 'GET',
+        }).done(function(data){
+            console.log(data);
+            data.forEach(function(imagen){
+                $('#topics').append(
+                    `<div class="bg-gray-100 p-4 rounded shadow hover:shadow-lg transition-shadow m-4">
+                        <img src="${imagen.cover_photo.urls.small}" alt="${imagen.title}" class="w-full h-48 object-cover mb-4 rounded">
+                        <h2 class="text-lg font-semibold">${imagen.title}</h2>
+                        <p class="text-gray-600">Fotos: ${imagen.total_photos}</p>
+                    </div>`
+                );
+            });
+        });
+
+        $('#menu-btn').click(function () {
+            $('#mobile-menu').toggleClass('hidden');
+        });
+    });
+</script>
+</html>
