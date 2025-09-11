@@ -5,28 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
-    <style>
-        body {
-            font-family: 'Abel';
-        }
-
-        #search-menu li {
-            cursor: pointer;
-            background-color: #f3f4f6;
-        }
-
-        .home {
-
-        }
-        
-        
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Delius+Swash+Caps&family=Jacques+Francois+Shadow&family=Macondo+Swash+Caps&family=Playwrite+HU:wght@100..400&family=Ribeye+Marrow&family=Solitreo&family=Tilt+Prism&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
 <header>
-  <nav class="bg-white shadow flex justify-between p-4 items-center">
-    <a href="#" class="text-3xl font-bold text-purple-500">Artful Gallery</a>
+  <nav class="bg-white shadow flex justify-between pt-4 pb-4 ps-10 pe-10 items-center">
+    <a href="#" class="font-jac text-3xl">ARTFUL</a>
     <div class="md:hidden">
       <button id="menu-btn" class="text-gray-700 focus:outline-none">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -37,9 +22,9 @@
       </button>
     </div>
 
-    <ul class="hidden md:flex space-x-4 lg:space-x-8">
+    <ul class="hidden font-bold md:flex space-x-4 lg:space-x-8">
       <li>Home</li>
-      <li>Collection</li>
+      <li>Collections</li>
       <li>Artists</li>
       <li>Exhibition</li>
       <li>ArtWork Sale</li>
@@ -48,7 +33,7 @@
 
     <ul id="mobile-menu" class="hidden flex-col space-y-2 p-4 md:hidden bg-gray-100">
       <li>Home</li>
-      <li>Collection</li>
+      <li>Collections</li>
       <li>Artists</li>
       <li>Exhibition</li>
       <li>ArtWork Sale</li>
@@ -56,66 +41,129 @@
 </header>
 
 <body>
-  <!-- pricipal -->
-   <div class="sm:flex justify-between p-5 mb-5 text-center">
-    <div class="sm:w-3/4 p-5">
-      <h1 class="text-5xl bg-purple-200 mb-6 text-black inline-block rounded-full ps-10 pe-10 sm:text-8xl">ART</h1>
-      <h1 class="text-5xl mb-6 text-black placeholder-white sm:text-8xl">WHICH POWERS <br>AND INSPIRE</h1>
-      <h1 class="text-5xl mb-6 text-black placeholder-white sm:text-8xl border border-3 rounded-full ps-10 pe-10 inline-block">HUMAN MIND</h1>
-
-    </div>
-    <div class="bg-black p-4 rounded-br-3xl rounded-tl-3xl rounded-bl-3xl rounded-tr-3xl sm:w-1/4">
-      <img src="https://images.unsplash.com/photo-1582201942961-2e1c3e63d9b4?q=80&w=361&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" class="h-70 w-full rounded-br-3xl rounded-tl-3xl rounded-bl-3xl rounded-tr-3xl border-4 border-white">
-      <p class="mt-5 mb-5 text-white">ART HAS THE POWER TO INSPIRE AND UPLIFT THE HUMAN SOUL</p>
-      <img src="https://media.istockphoto.com/id/1389436165/es/vector/monta%C3%B1as-en-islandia.webp?a=1&s=612x612&w=0&k=20&c=iaNuCMDcCOwalouxxbNf9n5N_BChdbTy57Zm5D1E5nQ=" alt="" class="h-30 w-full rounded-bl-3xl rounded-tr-3xl rounded-br-3xl rounded-tl-3xl border-4 border-white">
-    </div>
-
-   </div>
-  <!--collections -->
-   <div>
-     <h1>Collections</h1>
-     <div id="imagenes" class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4 p-4">
-     </div>
-   </div>
-
-   <!-- topics -->
-   <div>
-     <h1>Topics</h1>
-     <div id="topics" ></div>
-   </div>
-   
-    <!--category -->
-    <div>
-      <div class="flex justify-center p-4">
-       <nav>
-         <ul class="flex space-x-4" id="search-menu">
-           <li>All</li>
-           <li class="category">Oil Painting</li>
-           <li class="category">Sculpture</li>
-           <li class="category">Modern Art</li>
-         </ul>
-       </nav>
+  <div class="p-5">
+    <!-- pricipal -->
+     <div class="md:flex justify-between mb-5 text-center">
+      <div class="p-none md:w-3/4 p-5">
+        <h1 class="font-jac text-5xl bg-purple-200 mb-6 text-black inline-block rounded-full ps-5 pe-5 md:text-8xl">ARTFUL</h1>
+        <h1 class="text-5xl text-black mb-6 placeholder-white md:text-8xl">WHICH POWERS <br>AND INSPIRE</h1>
+        <h1 class="font-jac text-3xl mb-6 text-black ps-5 pe-5  md:text-8xl border border-2 rounded-full  inline-block">HUMAN MIND</h1>
+  
       </div>
-      <div id="search-results" class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4 p-4"></div>
-    </div>
+      <div class="bg-purple-100 shadow-xl transition-shadow p-4 rounded-br-3xl rounded-tl-3xl rounded-bl-3xl rounded-tr-3xl md:w-1/4">
+        <img src="https://images.unsplash.com/photo-1582201942961-2e1c3e63d9b4?q=80&w=361&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" class="h-70 w-full rounded-br-3xl rounded-tl-3xl rounded-bl-3xl rounded-tr-3xl border-4 border-white">
+        <p class="mt-5 mb-5">ART HAS THE POWER TO INSPIRE AND UPLIFT THE HUMAN SOUL</p>
+        <img src="https://media.istockphoto.com/id/1389436165/es/vector/monta%C3%B1as-en-islandia.webp?a=1&s=612x612&w=0&k=20&c=iaNuCMDcCOwalouxxbNf9n5N_BChdbTy57Zm5D1E5nQ=" alt="" class="h-30 w-full rounded-bl-3xl rounded-tr-3xl rounded-br-3xl rounded-tl-3xl border-4 border-white">
+      </div>
+  
+     </div>
+    <!--collections -->
+     <div>
+       <h1 class=" text-center font-bold text-5xl md:text-start">Collections</h1>
+       <!-- c1 -->
+       <div class="text-center items-center md:flex">
+        <div id="imagesC1" class="grid grid-cols-1 w-full justify-between w-2/3 md:grid-cols-2 gap-10 mt-4 p-4">
+       </div>
+        <div class="w-full md:w-1/3" id="c1"></div>
+       </div>
+       <!--c2 -->
+       <div class="text-center items-center border-t-1 border-gray-400 md:flex md:border-none">
+         <div class="w-full md:w-1/3" id="c2"></div>
+         <div id="imagesC2" class="grid grid-cols-1 w-full justify-between w-2/3 md:grid-cols-2 gap-10 mt-4 p-4">
+        </div>
+        </div>
+     </div>
+  
+     <!-- topics -->
+     <div>
+       <h1>Topics</h1>
+       <div id="topics" class="grid grid-cols-2 md:grid-cols-4 "></div>
+     </div>
+     
+      <!--category -->
+      <div>
+        <div class="flex justify-center p-4">
+         <nav>
+           <ul class="flex space-x-4" id="search-menu">
+             <li>All</li>
+             <li class="category">Oil Painting</li>
+             <li class="category">Sculpture</li>
+             <li class="category">Modern Art</li>
+           </ul>
+         </nav>
+        </div>
+        <div id="search-results" class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4 p-4"></div>
+      </div>
+  </div>
 
    
     
 </body>
 <script>
     $(document).ready(function () {
-      //get collections
+
+      //get 1 and 2 collecction
       $.ajax({
-            url: `https://api.unsplash.com/collections/?client_id=AkV3nFgtCLdXWkjwS_yKlIQpUweEe7i6KTWWx9jjQak`,
+            url: `https://api.unsplash.com/collections/41020694/?client_id=AkV3nFgtCLdXWkjwS_yKlIQpUweEe7i6KTWWx9jjQak`,
+            type: 'GET',
+        }).done(function(data){
+            console.log(data);
+                $('#c1').append(
+                    `<div class="p-4">
+                        <h2 class="font-bold text-3xl mb-2">${data.title}</h2>
+                        <h3 class="text-xl mb-4">${data.description}</h3>
+                        <button class="bg-black rounded-full p-3 cursor-pointer">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                          </svg>
+                        </button>
+                    </div>`
+                );
+           
+        });
+
+        $.ajax({
+            url: `https://api.unsplash.com/collections/4465811/?client_id=AkV3nFgtCLdXWkjwS_yKlIQpUweEe7i6KTWWx9jjQak`,
+            type: 'GET',
+        }).done(function(data){
+            console.log(data);
+                $('#c2').append(
+                    `<div class="p-4">
+                        <h2 class="font-bold text-3xl mb-2">${data.title}</h2>
+                        <h3 class="text-xl mb-4">${data.description}</h3>
+                        <button class="bg-black rounded-full p-3 cursor-pointer">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                          </svg>
+                        </button>
+                    </div>`
+                );
+           
+        });
+      //get 1 and 2 collection/photos
+      $.ajax({
+            url: `https://api.unsplash.com/collections/41020694/photos?per_page=2;client_id=AkV3nFgtCLdXWkjwS_yKlIQpUweEe7i6KTWWx9jjQak`,
             type: 'GET',
         }).done(function(data){
             console.log(data);
             data.forEach(function(imagen){
-                $('#imagenes').append(
-                    `<div class="bg-gray-100 p-4 rounded shadow hover:shadow-lg transition-shadow">
-                        <img src="${imagen.cover_photo.urls.small}" alt="${imagen.title}" class="w-full h-48 object-cover mb-4 rounded">
-                        <h2 class="text-lg font-semibold">${imagen.title}</h2>
-                        <p class="text-gray-600">Fotos: ${imagen.total_photos}</p>
+                $('#imagesC1').append(
+                    `<div>
+                        <img src="${imagen.urls.small}" alt="${imagen.alt_description}" class="w-full h-100 object-cover" style="border-radius: 50px;">
+                    </div>`
+                );
+            });
+        });
+
+        $.ajax({
+            url: `https://api.unsplash.com/collections/4465811/photos?per_page=2;client_id=AkV3nFgtCLdXWkjwS_yKlIQpUweEe7i6KTWWx9jjQak`,
+            type: 'GET',
+        }).done(function(data){
+            console.log(data);
+            data.forEach(function(imagen){
+                $('#imagesC2').append(
+                    `<div>
+                        <img src="${imagen.urls.small}" alt="${imagen.alt_description}" class="w-full h-100 object-cover" style="border-radius: 50px;">
                     </div>`
                 );
             });
@@ -123,7 +171,7 @@
 
       //get topics
       $.ajax({
-            url: `https://api.unsplash.com/topics/?per_page=40;client_id=AkV3nFgtCLdXWkjwS_yKlIQpUweEe7i6KTWWx9jjQak`,
+            url: `https://api.unsplash.com/topics/?page=2&per_page=4;client_id=AkV3nFgtCLdXWkjwS_yKlIQpUweEe7i6KTWWx9jjQak`,
             type: 'GET',
         }).done(function(data){
             console.log(data);
@@ -157,26 +205,26 @@
         });
 
         //get images filter by category
-        $('.category').on('click', function(){
-            var category= $(this).text();
-            $('#search-results').empty();
-            $.ajax({
-                url: `https://api.unsplash.com/search/photos/?page=1&per_page=40&query=${category}&color=yellow;client_id=AkV3nFgtCLdXWkjwS_yKlIQpUweEe7i6KTWWx9jjQak`,
-                type: 'GET',
-            }).done(function(data){
-                console.log(data);
-                data= data.results;
-                console.log(data);
-                data.forEach(function(imagen){
-                    $('#search-results').append(
-                        `<div class="bg-gray-100 p-4 rounded shadow hover:shadow-lg transition-shadow m-4">
-                            <img src="${imagen.urls.small}" alt="${imagen.description}" class="w-full h-48 object-cover mb-4 rounded">
-                            <h2 class="text-lg font-semibold">${imagen.id}</h2>
-                        </div>`
-                    );
-                });
-            });
-        });
+        // $('.category').on('click', function(){
+        //     var category= $(this).text();
+        //     $('#search-results').empty();
+        //     $.ajax({
+        //         url: `https://api.unsplash.com/search/photos/?page=1&per_page=40&query=${category}&color=yellow;client_id=AkV3nFgtCLdXWkjwS_yKlIQpUweEe7i6KTWWx9jjQak`,
+        //         type: 'GET',
+        //     }).done(function(data){
+        //         console.log(data);
+        //         data= data.results;
+        //         console.log(data);
+        //         data.forEach(function(imagen){
+        //             $('#search-results').append(
+        //                 `<div class="bg-gray-100 p-4 rounded shadow hover:shadow-lg transition-shadow m-4">
+        //                     <img src="${imagen.urls.small}" alt="${imagen.description}" class="w-full h-48 object-cover mb-4 rounded">
+        //                     <h2 class="text-lg font-semibold">${imagen.id}</h2>
+        //                 </div>`
+        //             );
+        //         });
+        //     });
+        // });
 
         $('#menu-btn').click(function () {
             $('#mobile-menu').toggleClass('hidden');
