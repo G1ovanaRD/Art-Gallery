@@ -1,1 +1,2 @@
 # Art-Gallery
+ARTFUL is an interactive web interface that I designed and developed, focused on showcasing art collections, photographs,artists, and exhibitions with a modern and dynamic visual experience. The project integrates real data using the Unsplash API, allowing collections, images, and artist profiles to be updated in real time. Its responsive design is optimized for smooth navigation on mobile and desktop, combining elegant aesthetics with interactive components such as category catalogs,filterable galleries, and dynamic cards.
